@@ -1,0 +1,200 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kit Digitale Artigiano — Fatture, Preventivi e Clienti Senza Stress</title>
+  <meta name="description" content="3 strumenti pratici per artigiani: gestisci fatture, preventivi e clienti in modo semplice. €15, pagamento unico, accesso immediato." />
+  <style>
+    *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+    body { font-family: 'Segoe UI', Arial, sans-serif; color: #1a1a1a; background: #fff; line-height: 1.6; }
+    .container { max-width: 680px; margin: 0 auto; padding: 0 20px; }
+
+    /* HERO */
+    .hero { background: #1a3a2a; color: #fff; padding: 60px 20px 50px; text-align: center; }
+    .hero-badge { display: inline-block; background: #f0a500; color: #1a1a1a; font-weight: 700; font-size: 13px; padding: 4px 14px; border-radius: 20px; margin-bottom: 20px; letter-spacing: 0.5px; }
+    .hero h1 { font-size: clamp(28px, 5vw, 44px); font-weight: 800; line-height: 1.15; margin-bottom: 18px; }
+    .hero h1 em { color: #f0a500; font-style: normal; }
+    .hero p { font-size: 18px; color: #c8e6d4; max-width: 560px; margin: 0 auto 32px; }
+    .btn-primary { display: inline-block; background: #f0a500; color: #1a1a1a; font-weight: 800; font-size: 18px; padding: 16px 36px; border-radius: 8px; text-decoration: none; transition: background 0.2s; }
+    .btn-primary:hover { background: #d4920a; }
+    .hero-sub { margin-top: 14px; font-size: 14px; color: #8ec9a8; }
+
+    /* PAIN */
+    .pain { background: #f8f4ee; padding: 52px 20px; }
+    .pain h2 { font-size: 26px; font-weight: 700; margin-bottom: 24px; text-align: center; }
+    .pain-list { list-style: none; max-width: 560px; margin: 0 auto; }
+    .pain-list li { padding: 12px 0 12px 36px; border-bottom: 1px solid #e0d9cf; font-size: 16px; position: relative; color: #444; }
+    .pain-list li:last-child { border-bottom: none; }
+    .pain-list li::before { content: '"'; position: absolute; left: 0; font-size: 28px; color: #b0895a; top: 8px; font-family: Georgia, serif; }
+
+    /* COST */
+    .cost { padding: 52px 20px; text-align: center; }
+    .cost h2 { font-size: 24px; font-weight: 700; margin-bottom: 8px; }
+    .cost p { color: #666; margin-bottom: 32px; }
+    .cost-grid { display: flex; flex-wrap: wrap; gap: 16px; justify-content: center; }
+    .cost-card { background: #fff3f3; border: 1px solid #f0c0c0; border-radius: 10px; padding: 20px 24px; max-width: 200px; text-align: center; }
+    .cost-card .amount { font-size: 28px; font-weight: 800; color: #c0392b; }
+    .cost-card .label { font-size: 13px; color: #666; margin-top: 4px; }
+
+    /* PRODUCT */
+    .product { background: #f0f7f3; padding: 60px 20px; }
+    .product h2 { font-size: 28px; font-weight: 800; text-align: center; margin-bottom: 8px; }
+    .product .subtitle { text-align: center; color: #555; margin-bottom: 40px; font-size: 16px; }
+    .product-cards { display: flex; flex-direction: column; gap: 24px; max-width: 620px; margin: 0 auto; }
+    .product-card { background: #fff; border-radius: 12px; padding: 28px; border-left: 4px solid #2e7d52; box-shadow: 0 2px 8px rgba(0,0,0,0.06); }
+    .product-card .tag { font-size: 11px; font-weight: 700; color: #2e7d52; letter-spacing: 1px; text-transform: uppercase; margin-bottom: 8px; }
+    .product-card h3 { font-size: 20px; font-weight: 700; margin-bottom: 10px; }
+    .product-card p { color: #555; font-size: 15px; }
+    .product-card ul { margin-top: 12px; padding-left: 18px; color: #555; font-size: 15px; }
+    .product-card ul li { margin-bottom: 6px; }
+
+    /* GUARANTEE */
+    .guarantee { padding: 52px 20px; text-align: center; }
+    .guarantee-box { background: #fffbf0; border: 2px solid #f0a500; border-radius: 12px; padding: 32px; max-width: 560px; margin: 0 auto; }
+    .guarantee-box .icon { font-size: 40px; margin-bottom: 12px; }
+    .guarantee-box h3 { font-size: 22px; font-weight: 700; margin-bottom: 10px; }
+    .guarantee-box p { color: #555; font-size: 16px; }
+
+    /* CTA FINAL */
+    .cta-final { background: #1a3a2a; color: #fff; padding: 60px 20px; text-align: center; }
+    .cta-final h2 { font-size: 30px; font-weight: 800; margin-bottom: 12px; }
+    .cta-final p { color: #c8e6d4; font-size: 17px; margin-bottom: 10px; }
+    .price-block { margin: 28px 0; }
+    .price-block .old { font-size: 18px; color: #8ec9a8; text-decoration: line-through; margin-bottom: 4px; }
+    .price-block .new { font-size: 52px; font-weight: 900; color: #f0a500; line-height: 1; }
+    .price-block .note { font-size: 14px; color: #8ec9a8; margin-top: 6px; }
+    .cta-final .btn-primary { font-size: 20px; padding: 18px 44px; }
+    .cta-final .final-sub { margin-top: 16px; font-size: 14px; color: #8ec9a8; }
+
+    /* FOOTER */
+    footer { padding: 24px 20px; text-align: center; font-size: 13px; color: #999; border-top: 1px solid #eee; }
+    footer a { color: #999; }
+  </style>
+</head>
+<body>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="container">
+    <div class="hero-badge">🔧 Per artigiani e piccole imprese</div>
+    <h1>Smetti di perdere soldi<br>con <em>carta e penna.</em></h1>
+    <p>Tre strumenti pratici per gestire fatture, preventivi e clienti — senza imparare nulla di complicato, senza assumere nessuno, senza spendere un capitale.</p>
+    <a href="https://buy.stripe.com/dRmaEW6YZ6hCdpyc7p9R600" class="btn-primary">Scarica il Kit — €15</a>
+    <p class="hero-sub">⚡ Accesso immediato dopo il pagamento &nbsp;·&nbsp; 🔒 Pagamento sicuro Stripe</p>
+  </div>
+</section>
+
+<!-- PAIN -->
+<section class="pain">
+  <div class="container">
+    <h2>Ti riconosci in qualcuna di queste frasi?</h2>
+    <ul class="pain-list">
+      <li>Ci pensa il mio commercialista… ma mi costa 120€ al mese solo per le fatture.</li>
+      <li>I preventivi li faccio a voce. Poi il cliente dice che non ricordava il prezzo.</li>
+      <li>Ho provato un software una volta. Era complicatissimo. Ho smesso.</li>
+      <li>Non ho tempo di rincorrere i clienti per i pagamenti.</li>
+      <li>I clienti si dimenticano dell'appuntamento e non vengono.</li>
+      <li>Sono solo io che gestisco tutto. Non ho un ufficio.</li>
+    </ul>
+  </div>
+</section>
+
+<!-- COST -->
+<section class="cost">
+  <div class="container">
+    <h2>Quanto ti costa non fare niente?</h2>
+    <p>Ogni anno, questi problemi ti portano via soldi reali:</p>
+    <div class="cost-grid">
+      <div class="cost-card">
+        <div class="amount">1.440€</div>
+        <div class="label">al commercialista solo per le fatture ordinarie</div>
+      </div>
+      <div class="cost-card">
+        <div class="amount">3.000€</div>
+        <div class="label">di clienti persi che non tornano</div>
+      </div>
+      <div class="cost-card">
+        <div class="amount">4+ lavori</div>
+        <div class="label">al mese persi per preventivi a voce</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- PRODUCT -->
+<section class="product">
+  <div class="container">
+    <h2>Cosa c'è nel Kit Digitale Artigiano</h2>
+    <p class="subtitle">Tre prodotti pratici, pronti da usare, pensati per chi lavora con le mani.</p>
+    <div class="product-cards">
+
+      <div class="product-card">
+        <div class="tag">Prodotto 1</div>
+        <h3>📄 Fatturazione Zero Stress</h3>
+        <p>Guida PDF da 20 pagine con screenshot reali e frecce rosse. Setup in 47 minuti.</p>
+        <ul>
+          <li>Come passare da 120€/mese al commercialista a 8€/mese</li>
+          <li>Messaggio automatico di sollecito già scritto per te</li>
+          <li>Glossario: 10 termini spiegati come li spiegheresti a tuo nonno</li>
+        </ul>
+      </div>
+
+      <div class="product-card">
+        <div class="tag">Prodotto 2</div>
+        <h3>📋 3 Template Preventivo Professionale</h3>
+        <p>File pronti da personalizzare in 10 minuti. Nient'altro da fare.</p>
+        <ul>
+          <li>Ristrutturazione leggera (bagno, cucina, tinteggiatura)</li>
+          <li>Manutenzione impianti con promemoria ricontatto automatico</li>
+          <li>Servizi alla persona con politica cancellazione anti no-show</li>
+          <li>Bonus: come mandare il preventivo su WhatsApp in 4 passi</li>
+        </ul>
+      </div>
+
+      <div class="product-card">
+        <div class="tag">Prodotto 3</div>
+        <h3>👥 Sistema Clienti Fedeli</h3>
+        <p>Excel già impostato + 5 messaggi pronti + guida Brevo (gratis).</p>
+        <ul>
+          <li>Foglio che ti avvisa chi non viene da 60 giorni</li>
+          <li>Messaggi già scritti: benvenuto, reminder, riattivazione, compleanno, recensione Google</li>
+          <li>Setup automazione in 38 minuti totali</li>
+        </ul>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- GUARANTEE -->
+<section class="guarantee">
+  <div class="container">
+    <div class="guarantee-box">
+      <div class="icon">🛡️</div>
+      <h3>30 giorni soddisfatti o rimborsati</h3>
+      <p>Se apri il kit, lo provi, e non ti serve — ti restituiamo i €15 senza fare domande. Nessun rischio per te.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CTA FINALE -->
+<section class="cta-final">
+  <div class="container">
+    <h2>Pronto a smettere di perdere soldi?</h2>
+    <p>Pagamento unico. Nessun abbonamento. Accesso immediato.</p>
+    <div class="price-block">
+      <div class="new">€15</div>
+      <div class="note">Una volta sola · Accesso a vita · 3 prodotti completi</div>
+    </div>
+    <a href="https://buy.stripe.com/dRmaEW6YZ6hCdpyc7p9R600" class="btn-primary">Acquista ora — €15</a>
+    <p class="final-sub">🔒 Pagamento sicuro con Stripe &nbsp;·&nbsp; ⚡ Ricevi tutto via email in meno di 2 minuti</p>
+  </div>
+</section>
+
+<footer>
+  <p>© 2026 Kit Digitale Artigiano &nbsp;·&nbsp; <a href="mailto:info@valeria.ai">Contatti</a></p>
+</footer>
+
+</body>
+</html>
